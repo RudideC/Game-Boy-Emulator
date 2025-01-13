@@ -1,19 +1,23 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <memory.h>
-#include "config.c"
+#include "config.h"
 
 typedef struct {
     u_int8_t data[MAX_MEM];
     int top;
 } Stack;
 
-Stack *newStack() {
-    return malloc(sizeof(Stack));
+Stack *newStack(void) {
+    Stack *s = (Stack *)malloc(sizeof(Stack));
+    if (s != NULL) {
+        s->top = -1;
+    }
+    return s;
 }
 
 int stackIsEmpty(Stack *s) {
-    return s->top == 0;
+    return s->top == -1;
 }
 
 int stackIsFull(Stack *s) {
@@ -47,7 +51,7 @@ int stackPeek(Stack *s) {
 char *repeat_char(char c, int times) {
     if (times <= 0) return NULL;
 
-    char *buffer = malloc(times + 1);
+    char *buffer = (char *)malloc(times + 1);
     if (!buffer) return NULL;
 
     memset(buffer, c, times);
@@ -59,7 +63,7 @@ char *repeat_char(char c, int times) {
 void stackShow(Stack *s) {
     printf("|-------|\n");
     printf("| STACK |\n");
-    for (int i = 0; i < s->top; i++) {
+    for (int i = 0; i <= s->top; i++) {
         int spaces = 4;
         if (s->data[i] < 100) {spaces++;}
         if (s->data[i] < 10) {spaces++;}

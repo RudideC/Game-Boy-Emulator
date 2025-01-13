@@ -3,4 +3,17 @@ version: "3"
 tasks:
   build:
     cmds:
-      - gcc -o game-boy src/main.c -I/opt/homebrew/include -L/opt/homebrew/lib -lSDL2 -lSDL2_ttf
+      - mkdir -p build
+      - gcc -O2 -Wall -Wextra -pedantic -std=c99 src/main.c -o build/gbe -I/opt/homebrew/include -L/opt/homebrew/lib -lSDL2 -lSDL2_ttf
+  debug:
+    cmds:
+      - mkdir -p build/debug
+      - gcc -O2 -Wall -Wextra -pedantic -std=c99 -g -DDEBUG src/main.c -o build/debug/gbe -I/opt/homebrew/include -L/opt/homebrew/lib -lSDL2 -lSDL2_ttf 
+  no_warn:
+    cmds:
+      - mkdir -p build
+      - gcc -O2 -std=c99 src/main.c -o build/gbe -I/opt/homebrew/include -L/opt/homebrew/lib -lSDL2 -lSDL2_ttf
+    desc: "Build without the extra warnings"
+  clean:
+    cmds:
+      - rm -rf build
