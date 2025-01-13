@@ -1,0 +1,6 @@
+version: "3"
+
+tasks:
+  build:
+    cmds:
+      - gcc -o game-boy src/main.c -I/opt/homebrew/include -L/opt/homebrew/lib -lSDL2 -lSDL2_ttf
