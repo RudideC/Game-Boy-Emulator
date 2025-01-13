@@ -1,5 +1,11 @@
 # Build directory
 build
 
+# Test directory
+testing_shit
+
+# Font directory
+fonts
+
 # MacOS
 .DS_Store
