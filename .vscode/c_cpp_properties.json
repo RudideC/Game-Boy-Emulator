@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "/opt/homebrew/include" // This prevents the stupid squiggly lines
+            ]
+        }
+    ],
+    "version": 4
+}
