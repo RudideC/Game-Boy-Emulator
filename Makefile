@@ -2,7 +2,7 @@ CC = gcc
 SRC_DIR = src
 BUILD_DIR = build
 DEBUG_DIR = $(BUILD_DIR)/debug
-CFLAGS = -O2 -Wall -Wextra -pedantic -std=c99
+CFLAGS = -O2 -Wall -Wextra -Wpedantic -std=c99
 INCLUDE_FLAGS = -I/opt/homebrew/include
 DEBUG_FLAGS = -g -DDEBUG
 NO_WARN_FLAGS = -O2 -std=c99
