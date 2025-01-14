@@ -6,7 +6,7 @@
 #include "config.h"
 
 typedef struct {
-    u_int8_t data[MAX_MEM];
+    u_int8_t data[MAX_MEM/sizeof(u_int8_t)];
     int top;
 } Stack;
 
@@ -23,10 +23,10 @@ int stackIsEmpty(Stack *s) {
 }
 
 int stackIsFull(Stack *s) {
-    return s->top == MAX_MEM;
+    return s->top == MAX_MEM - 1;
 }
 
-void stackPush(Stack *s, int value) {
+void stackPush(Stack *s, uint8_t value) {
     if (stackIsFull(s)) {
         printf("Stack overflow!\n");
         return;
