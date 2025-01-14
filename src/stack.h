@@ -6,7 +6,7 @@
 #include "config.h"
 
 typedef struct {
-    u_int8_t data[MAX_MEM/sizeof(u_int8_t)];
+    u_int8_t data[MAX_MEM/sizeof(uint8_t)];
     int top;
 } Stack;
 
